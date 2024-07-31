@@ -137,7 +137,7 @@ INNER JOIN
 INNER JOIN 
     suppliers sup ON p.supplier_id = sup.id;
 ```
-![Результат запиту з об'єднанням таблиць](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/1.PNG)
+![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/1.PNG)
 	
 #### 4. Запити
 ##### 1. Визначення кількості рядків
@@ -152,7 +152,7 @@ INNER JOIN employees e ON o.employee_id = e.employee_id
 INNER JOIN shippers s ON o.shipper_id = s.id
 INNER JOIN suppliers sup ON p.supplier_id = sup.id;
 ```
-![Результат запиту з об'єднанням таблиць](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/2.PNG)
+![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/2.PNG)
 
 ##### 2. Заміна INNER JOIN на LEFT JOIN або RIGHT JOIN
 ```sql
@@ -166,7 +166,7 @@ LEFT JOIN employees e ON o.employee_id = e.employee_id
 LEFT JOIN shippers s ON o.shipper_id = s.id
 LEFT JOIN suppliers sup ON p.supplier_id = sup.id;
 ```
-![Результат запиту з об'єднанням таблиць](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/3.PNG)
+![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/3.PNG)
 
 ```
 INNER JOIN повертає лише ті рядки, які мають відповідні значення в обох таблицях.
@@ -187,7 +187,7 @@ INNER JOIN shippers s ON o.shipper_id = s.id
 INNER JOIN suppliers sup ON p.supplier_id = sup.id
 WHERE e.employee_id > 3 AND e.employee_id <= 10;
 ```
-![Результат запиту з об'єднанням таблиць](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/5.PNG)
+![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/5.PNG)
 
 ##### 4. Групування за категорією та підрахунок рядків у групі, середньої кількості товару
 ```sql
@@ -200,7 +200,7 @@ INNER JOIN products p ON od.product_id = p.id
 INNER JOIN categories cat ON p.category_id = cat.id
 GROUP BY cat.name;
 ```
-![Результат запиту з об'єднанням таблиць](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/6.PNG)
+![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/6.PNG)
 
 ##### 5. Відфільтрувати рядки, де середня кількість товару більша за 21
 ```sql
@@ -214,7 +214,7 @@ INNER JOIN categories cat ON p.category_id = cat.id
 GROUP BY cat.name
 HAVING AVG(od.quantity) > 21;
 ```
-![Результат запиту з об'єднанням таблиць](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/7.PNG)
+![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/7.PNG)
 
 ##### 6. Сортування рядків за спаданням кількості рядків
 ```sql
@@ -229,7 +229,7 @@ GROUP BY cat.name
 HAVING AVG(od.quantity) > 21
 ORDER BY row_count DESC;
 ```
-![Результат запиту з об'єднанням таблиць](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/8.PNG)
+![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/8.PNG)
 
 ##### 7. Вивести чотири рядки з пропущеним першим рядком
 ```sql
@@ -241,7 +241,7 @@ FROM order_details od
 INNER JOIN products p ON od.product_id = p.id
 INNER JOIN categories cat ON p.category_id = cat.id
 GROUP BY cat.name
-![Результат запиту з об'єднанням таблиць](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/9.PNG)
+![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/9.PNG)
 HAVING AVG(od.quantity) > 21
 ORDER BY row_count DESC
 LIMIT 1, 4; -- Пропустити перший рядок і взяти чотири наступні
