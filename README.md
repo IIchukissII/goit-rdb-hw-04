@@ -155,7 +155,6 @@ INNER JOIN suppliers sup ON p.supplier_id = sup.id;
 ![Результат запиту з об'єднанням таблиць](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/2.PNG)
 
 ##### 2. Заміна INNER JOIN на LEFT JOIN або RIGHT JOIN
-###### LEFT JOIN
 ```sql
 SELECT COUNT(*)
 FROM order_details od
@@ -168,6 +167,12 @@ LEFT JOIN shippers s ON o.shipper_id = s.id
 LEFT JOIN suppliers sup ON p.supplier_id = sup.id;
 ```
 ![Результат запиту з об'єднанням таблиць](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/3.PNG)
+
+```
+INNER JOIN повертає лише ті рядки, які мають відповідні значення в обох таблицях.
+LEFT JOIN повертає всі рядки з лівої таблиці та відповідні рядки з правої таблиці. Якщо немає відповідного рядка в правій таблиці, то результат міститиме NULL.
+RIGHT JOIN працює аналогічно до LEFT JOIN, але повертає всі рядки з правої таблиці.
+```
 
 ##### 3. Вибір рядків з employee_id > 3 та ≤ 10
 ```sql
