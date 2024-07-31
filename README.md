@@ -200,7 +200,7 @@ INNER JOIN products p ON od.product_id = p.id
 INNER JOIN categories cat ON p.category_id = cat.id
 GROUP BY cat.name;
 ```
-![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/6.PNG)
+![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/7.PNG)
 
 ##### 5. Відфільтрувати рядки, де середня кількість товару більша за 21
 ```sql
@@ -214,7 +214,7 @@ INNER JOIN categories cat ON p.category_id = cat.id
 GROUP BY cat.name
 HAVING AVG(od.quantity) > 21;
 ```
-![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/7.PNG)
+![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/8.PNG)
 
 ##### 6. Сортування рядків за спаданням кількості рядків
 ```sql
@@ -229,7 +229,7 @@ GROUP BY cat.name
 HAVING AVG(od.quantity) > 21
 ORDER BY row_count DESC;
 ```
-![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/8.PNG)
+![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/9.PNG)
 
 ##### 7. Вивести чотири рядки з пропущеним першим рядком
 ```sql
