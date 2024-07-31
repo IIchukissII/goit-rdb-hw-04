@@ -159,8 +159,8 @@ INNER JOIN suppliers sup ON p.supplier_id = sup.id;
 ```sql
 SELECT COUNT(*)
 FROM order_details od
-LEFT JOIN orders o ON od.order_id = o.id
-LEFT JOIN customers c ON o.customer_id = c.id
+RIGHT JOIN orders o ON od.order_id = o.id
+RIGHT JOIN customers c ON o.customer_id = c.id
 LEFT JOIN products p ON od.product_id = p.id
 LEFT JOIN categories cat ON p.category_id = cat.id
 LEFT JOIN employees e ON o.employee_id = e.employee_id
@@ -168,20 +168,6 @@ LEFT JOIN shippers s ON o.shipper_id = s.id
 LEFT JOIN suppliers sup ON p.supplier_id = sup.id;
 ```
 ![Результат запиту з об'єднанням таблиць](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/3.PNG)
-
-###### RIGHT JOIN
-```sql
-SELECT COUNT(*)
-FROM order_details od
-RIGHT JOIN orders o ON od.order_id = o.id
-RIGHT JOIN customers c ON o.customer_id = c.id
-RIGHT JOIN products p ON od.product_id = p.id
-RIGHT JOIN categories cat ON p.category_id = cat.id
-RIGHT JOIN employees e ON o.employee_id = e.employee_id
-RIGHT JOIN shippers s ON o.shipper_id = s.id
-RIGHT JOIN suppliers sup ON p.supplier_id = sup.id;
-```
-![Результат запиту з об'єднанням таблиць](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/4.PNG)
 
 ##### 3. Вибір рядків з employee_id > 3 та ≤ 10
 ```sql
