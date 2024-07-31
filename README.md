@@ -11,7 +11,8 @@
 CREATE TABLE authors (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
     author_name VARCHAR(255) NOT NULL
-);```
+);
+```
 
 
 #### b. Створення таблиці genres
@@ -20,6 +21,7 @@ CREATE TABLE genres (
     genre_id INT AUTO_INCREMENT PRIMARY KEY,
     genre_name VARCHAR(255) NOT NULL
 );
+```
 
 #### c. Створення таблиці books
 ```sql
@@ -34,7 +36,7 @@ CREATE TABLE books (
     FOREIGN KEY (author_id) REFERENCES authors(author_id),
     FOREIGN KEY (genre_id) REFERENCES genres(genre_id)
 );
-
+```
 #### d. Створення таблиці users
 ```sql
 CREATE TABLE users (
@@ -42,6 +44,7 @@ CREATE TABLE users (
     username VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL
 );
+```
 
 #### e. Створення таблиці borrowed_books
 ```sql
@@ -54,6 +57,7 @@ CREATE TABLE borrowed_books (
     FOREIGN KEY (book_id) REFERENCES books(book_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
+```
 
 #### 2. Вставка тестових даних
 ##### Вставка даних у таблицю authors
@@ -62,6 +66,8 @@ INSERT INTO authors (author_name) VALUES
 ('George Orwell'),
 ('Aldous Huxley'),
 ('Erich Fromm');
+```
+
 ###### Вставка даних у таблицю genres
 ```sql
 INSERT INTO genres (genre_name) VALUES 
@@ -69,6 +75,7 @@ INSERT INTO genres (genre_name) VALUES
 ('Fantasy'),
 ('Adventure'),
 ('Romance');
+```
 
 ##### Вставка даних у таблицю books
 ```sql
@@ -76,6 +83,7 @@ INSERT INTO books (title, publication_year, author_id, genre_id) VALUES
 ('1984', 1949, 1, 1),
 ('Brave New World', 1932, 2, 1),
 ('Escape from Freedom', 1941, 3, 1);
+```
 
 ##### Вставка даних у таблицю users
 ```sql
@@ -85,6 +93,7 @@ INSERT INTO users (username, email) VALUES
 ('AliceJohnson', 'alice.johnson@example.com'),
 ('BobBrown', 'bob.brown@example.com'),
 ('CharlieDavis', 'charlie.davis@example.com');
+```
 
 ##### Вставка даних у таблицю borrowed_books
 ```sql
@@ -94,6 +103,7 @@ INSERT INTO borrowed_books (book_id, user_id, borrow_date, return_date) VALUES
 (3, 3, '2024-01-20', '2024-03-01'),
 (1, 4, '2024-03-05', NULL), -- Ще не повернуто
 (2, 5, '2024-03-10', NULL);
+```
 
 #### 3. Запит з об'єднанням таблиць
 ```sql
@@ -126,6 +136,7 @@ INNER JOIN
     shippers s ON o.shipper_id = s.id
 INNER JOIN 
     suppliers sup ON p.supplier_id = sup.id;
+```
 	
 #### 4. Запити
 ##### 1. Визначення кількості рядків
@@ -139,10 +150,10 @@ INNER JOIN categories cat ON p.category_id = cat.id
 INNER JOIN employees e ON o.employee_id = e.employee_id
 INNER JOIN shippers s ON o.shipper_id = s.id
 INNER JOIN suppliers sup ON p.supplier_id = sup.id;
+```
 
 ##### 2. Заміна INNER JOIN на LEFT JOIN або RIGHT JOIN
 ###### LEFT JOIN
-
 ```sql
 SELECT COUNT(*)
 FROM order_details od
@@ -153,9 +164,8 @@ LEFT JOIN categories cat ON p.category_id = cat.id
 LEFT JOIN employees e ON o.employee_id = e.employee_id
 LEFT JOIN shippers s ON o.shipper_id = s.id
 LEFT JOIN suppliers sup ON p.supplier_id = sup.id;
-
+```
 ###### RIGHT JOIN
-
 ```sql
 SELECT COUNT(*)
 FROM order_details od
@@ -166,6 +176,7 @@ RIGHT JOIN categories cat ON p.category_id = cat.id
 RIGHT JOIN employees e ON o.employee_id = e.employee_id
 RIGHT JOIN shippers s ON o.shipper_id = s.id
 RIGHT JOIN suppliers sup ON p.supplier_id = sup.id;
+```
 
 ##### 3. Вибір рядків з employee_id > 3 та ≤ 10
 ```sql
@@ -179,6 +190,7 @@ INNER JOIN employees e ON o.employee_id = e.employee_id
 INNER JOIN shippers s ON o.shipper_id = s.id
 INNER JOIN suppliers sup ON p.supplier_id = sup.id
 WHERE e.employee_id > 3 AND e.employee_id <= 10;
+```
 
 ##### 4. Групування за категорією та підрахунок рядків у групі, середньої кількості товару
 ```sql
@@ -190,6 +202,7 @@ FROM order_details od
 INNER JOIN products p ON od.product_id = p.id
 INNER JOIN categories cat ON p.category_id = cat.id
 GROUP BY cat.name;
+```
 
 ##### 5. Відфільтрувати рядки, де середня кількість товару більша за 21
 ```sql
@@ -202,6 +215,7 @@ INNER JOIN products p ON od.product_id = p.id
 INNER JOIN categories cat ON p.category_id = cat.id
 GROUP BY cat.name
 HAVING AVG(od.quantity) > 21;
+```
 
 ##### 6. Сортування рядків за спаданням кількості рядків
 ```sql
@@ -215,6 +229,7 @@ INNER JOIN categories cat ON p.category_id = cat.id
 GROUP BY cat.name
 HAVING AVG(od.quantity) > 21
 ORDER BY row_count DESC;
+```
 
 ##### 7. Вивести чотири рядки з пропущеним першим рядком
 ```sql
@@ -229,3 +244,4 @@ GROUP BY cat.name
 HAVING AVG(od.quantity) > 21
 ORDER BY row_count DESC
 LIMIT 1, 4; -- Пропустити перший рядок і взяти чотири наступні
+```
