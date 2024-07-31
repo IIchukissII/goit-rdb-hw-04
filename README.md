@@ -241,8 +241,8 @@ FROM order_details od
 INNER JOIN products p ON od.product_id = p.id
 INNER JOIN categories cat ON p.category_id = cat.id
 GROUP BY cat.name
-![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/9.PNG)
 HAVING AVG(od.quantity) > 21
 ORDER BY row_count DESC
 LIMIT 1, 4; -- Пропустити перший рядок і взяти чотири наступні
 ```
+![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/9.PNG)
