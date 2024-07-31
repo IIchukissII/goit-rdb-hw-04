@@ -15,7 +15,7 @@ CREATE TABLE authors (
 ```
 
 
-#### b. Створення таблиці genres
+#### b. Створення таблиці `genres`
 ```sql
 CREATE TABLE genres (
     genre_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -23,7 +23,7 @@ CREATE TABLE genres (
 );
 ```
 
-#### c. Створення таблиці books
+#### c. Створення таблиці `books`
 ```sql
 DROP TABLE IF EXISTS books;
 
@@ -37,7 +37,7 @@ CREATE TABLE books (
     FOREIGN KEY (genre_id) REFERENCES genres(genre_id)
 );
 ```
-#### d. Створення таблиці users
+#### d. Створення таблиці `users`
 ```sql
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -46,7 +46,7 @@ CREATE TABLE users (
 );
 ```
 
-#### e. Створення таблиці borrowed_books
+#### e. Створення таблиці `borrowed_books`
 ```sql
 CREATE TABLE borrowed_books (
     borrow_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -60,7 +60,7 @@ CREATE TABLE borrowed_books (
 ```
 
 #### 2. Вставка тестових даних
-##### Вставка даних у таблицю authors
+##### Вставка даних у таблицю `authors`
 ```sql
 INSERT INTO authors (author_name) VALUES 
 ('George Orwell'),
@@ -68,7 +68,7 @@ INSERT INTO authors (author_name) VALUES
 ('Erich Fromm');
 ```
 
-###### Вставка даних у таблицю genres
+###### Вставка даних у таблицю `genres`
 ```sql
 INSERT INTO genres (genre_name) VALUES 
 ('Dystopian'),
@@ -77,7 +77,7 @@ INSERT INTO genres (genre_name) VALUES
 ('Romance');
 ```
 
-##### Вставка даних у таблицю books
+##### Вставка даних у таблицю `books`
 ```sql
 INSERT INTO books (title, publication_year, author_id, genre_id) VALUES 
 ('1984', 1949, 1, 1),
@@ -85,7 +85,7 @@ INSERT INTO books (title, publication_year, author_id, genre_id) VALUES
 ('Escape from Freedom', 1941, 3, 1);
 ```
 
-##### Вставка даних у таблицю users
+##### Вставка даних у таблицю `users`
 ```sql
 INSERT INTO users (username, email) VALUES
 ('JohnDoe', 'john.doe@example.com'),
@@ -95,7 +95,7 @@ INSERT INTO users (username, email) VALUES
 ('CharlieDavis', 'charlie.davis@example.com');
 ```
 
-##### Вставка даних у таблицю borrowed_books
+##### Вставка даних у таблицю `borrowed_books`
 ```sql
 INSERT INTO borrowed_books (book_id, user_id, borrow_date, return_date) VALUES 
 (1, 1, '2024-01-15', '2024-02-15'),
@@ -245,4 +245,4 @@ HAVING AVG(od.quantity) > 21
 ORDER BY row_count DESC
 LIMIT 1, 4; -- Пропустити перший рядок і взяти чотири наступні
 ```
-![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/9.PNG)
+![](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/10.PNG)
