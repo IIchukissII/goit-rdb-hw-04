@@ -137,7 +137,7 @@ INNER JOIN
 INNER JOIN 
     suppliers sup ON p.supplier_id = sup.id;
 ```
-![Результат запиту з об'єднанням таблиць]([https://example.com/path/to/image.png](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/1.PNG))
+![Результат запиту з об'єднанням таблиць](https://github.com/IIchukissII/goit-rdb-hw-04/blob/main/img/1.PNG)
 	
 #### 4. Запити
 ##### 1. Визначення кількості рядків
